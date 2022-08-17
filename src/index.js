@@ -10,7 +10,6 @@ function swap(node, root) {
     node = root;
     root = temp;
 }
-
 function sort() {
     // Walk at all the nodes.
     for (let theNode = 1; theNode < nodes.length; theNode++) {
@@ -19,16 +18,19 @@ function sort() {
         while (true) {
             let leftChild = nodes[node * 2];
             let rightChild = nodes[(node * 2) + 1];
-            let root = Math.trunc(node / 2);
+            let root =nodes[Math.trunc(node / 2)];
             // To check the left child of the root.
             if (leftChild < root) {
-                swap(leftChild, root);
+                //swap(leftChild, root);
+                [nodes[node*2], nodes[Math.trunc(node/2)]] = [nodes[Math.trunc(node/2)], nodes[node*2]];
+                
                 // To make the node is the root and check if it the new root.
                 node = node / 2;
             }
             // To check the right child of the root.
             else if (rightChild < root) {
-                swap(rightChild, root);
+              //  swap(rightChild, root);
+               [nodes[(node*2)+1], nodes[Math.trunc(node/2)]] = [nodes[Math.trunc(node/2)], nodes[(node*2)+1]];
                 // To make the node is the root and check if it the new root.
                 node = root;
             }
@@ -39,6 +41,10 @@ function sort() {
         }
     }
 
+}
+sort();
+for(i=1; i<nodes.length;i++){
+console.log(nodes[i]);
 }
 
 // const root = new BinarySearchTreeNode(100);
