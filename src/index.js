@@ -6,6 +6,7 @@ import sort from "./sort";
 let nodes = [null, 10, 14, 12, 9, 5, 4];
 sort(nodes);
 
+
 // To draw our heap tree.
 // function drawTree() {
 //     sort();
